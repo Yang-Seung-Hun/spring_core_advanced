@@ -50,4 +50,27 @@ public class TemplateMethodTest {
         template2.execute(); // 로직2 호출
     }
 
+
+    /**
+     * 직접 구현체 클래스를 정의하는 대신 익명내부클래스 사용
+     */
+    @Test
+    void templateMethodV2(){
+        AbstractTemplate template1 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직1 실행");
+            }
+        };
+        template1.execute();
+
+        AbstractTemplate template2 = new AbstractTemplate() {
+            @Override
+            protected void call() {
+                log.info("비즈니스 로직2 실행");
+            }
+        };
+        template2.execute();
+    }
+
 }
